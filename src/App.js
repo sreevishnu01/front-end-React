@@ -12,6 +12,7 @@ function App() {
       <NavBar1 />
       <Header />
       <Blogpost />
+      <Test />
     </>
   );
 }
