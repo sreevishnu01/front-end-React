@@ -1,10 +1,14 @@
+import { Container, Row, Col, Card } from "react-bootstrap"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Sidebar = () => {
+
+function Sidebar() {
     return (
-        <div className="Sidebar">
-            Sidebar
-        </div>
-    );
+        <Card>
+            <Card.Title>blog post 2</Card.Title>
+
+        </Card>
+    )
 }
 
-export default Sidebar;
+export default Sidebar
