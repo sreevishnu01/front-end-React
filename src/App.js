@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Tutorial from "./pages/Tutorial";
 import './index.scss'
+import Test from "./components/Nav/Test";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/Tutorial" component={Tutorial} />
         </Switch>
       </Router>
+      <Test />
       <Footer />
     </>
   );

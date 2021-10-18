@@ -10,8 +10,10 @@ const randomImg = {
 
 function Sidebar() {
     return (
-        <Container>
+
+        <Container class="sticky-sm-top sticky-md-top" >
             <h4 class="mb-3">Trending topics</h4>
+
             <Card className="mb-3 text-center">
                 <Card.Title>Top 10</Card.Title>
             </Card>
@@ -30,7 +32,8 @@ function Sidebar() {
 
             <h4 class="mt-4 mb-3">Recent Post</h4>
 
-            <Row>
+            <Row >
+
                 <Col sm={4}>
                     <Card>
                         <Card.Img src={randomImg.images} />
@@ -45,8 +48,32 @@ function Sidebar() {
                         <div class="small mt-1">May 17, 2021</div>
                     </Card>
                 </Col>
+
             </Row>
+
+
+            <Row >
+
+                <Col sm={4}>
+                    <Card>
+                        <Card.Img src={randomImg.images} />
+                    </Card>
+
+                </Col>
+                <Col sm={8}>
+                    <Card className="border-light">
+                        <Card.Title>
+                            <h6 className="btn-link stretched-link">The pros and cons of business agency</h6>
+                        </Card.Title>
+                        <div class="small mt-1">May 17, 2021</div>
+                    </Card>
+                </Col>
+
+            </Row>
+
         </Container>
+
+
     )
 }
 
