@@ -15,7 +15,7 @@ const Header = () => {
             <Row >
                 <Col lg={6} >
                     <Card style={rounded5} className="text-white h-100" >
-                        <Card.Img style={rounded5} src={frameimg1} className=" img-fluid h-100" />
+                        <Card.Img style={rounded5} src={frameimg1} className="img-fluid h-100" />
                         <Card.ImgOverlay>
                             <Card.Title>Blog post</Card.Title>
                             <Card.Body>This is some text within a card body.</Card.Body>

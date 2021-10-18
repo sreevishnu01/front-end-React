@@ -1,17 +1,22 @@
-
-import Header from "./components/Header";
-import Blogpost from "./components/Blogpost";
 import NavBar1 from "./components/Nav/Navbar";
-import Test from "./components/Nav/Test";
 import Home from "./pages/Home";
-import Sidebar from "./components/Sidebar";
+import About from "./pages/About";
+import Footer from "./components/Footer";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Tutorial from "./pages/Tutorial";
 
 function App() {
   return (
     <>
-      <NavBar1 />
-      <Header />
-      <Blogpost />
+      <Router>
+        <NavBar1 />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/Tutorial" component={Tutorial} />
+        </Switch>
+        <Footer />
+      </Router>
     </>
   );
 }
