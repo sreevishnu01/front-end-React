@@ -1,7 +1,6 @@
 import { Container, Row, Col, Card, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Sidebar from "./Sidebar";
-import '../style/_index.scss'
 
 
 const randomImg = {
@@ -29,7 +28,7 @@ function Blogpost() {
                                 <Card className="border-light col-sm-12">
                                     <Card.Img variant="top" src={randomImg.image} style={rounded5} />
                                     <Card.Body>
-                                        <Card.Title>12 worst types of business accounts you follow on Twitter</Card.Title>
+                                        <Card.Title ><a href="#link" className="btn-link text-reset stretched-link">Ten tell-tale signs you need to get a new startup.</a></Card.Title>
                                         <Card.Text>
                                             This is a longer card with supporting text below as a natural
                                             lead-in to additional content. This content is a little bit longer.
