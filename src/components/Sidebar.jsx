@@ -27,7 +27,7 @@ function Sidebar() {
                 <Card.Title>Marketing</Card.Title>
             </Card>
             <div class="text-center mt-3">
-                <a href="#" class="fw-bold text-body text-primary-hover"><u>View all categories</u></a>
+                <a class="fw-bold text-body text-primary-hover"><u>View all categories</u></a>
             </div>
 
             <h4 class="mt-4 mb-3">Recent Post</h4>

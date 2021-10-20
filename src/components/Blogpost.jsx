@@ -13,7 +13,7 @@ const rounded5 = {
 
 // card  
 
-function Blogpost() {
+function Blogpost({ posts }) {
     return (
         <Container className="pt-5 pb-5">
             <Row>
@@ -23,15 +23,19 @@ function Blogpost() {
                         <p>Latest breaking news, pictures, videos, and special reports</p>
                     </div>
                     <Row xs={1} md={2} className="g-4">
-                        {Array.from({ length: 4 }).map((_, idx) => (
+                        {/* {Array.from({ length: 4 }).map((_, idx) => ( */}
+                        {/* limited number of loop iterms */}
+                        {posts.slice(0, 4).map((p) => (
+
                             <Col className="mt-5">
                                 <Card className="border-light col-sm-12">
                                     <Card.Img variant="top" src={randomImg.image} style={rounded5} />
                                     <Card.Body>
-                                        <Card.Title ><a href="#link" className="btn-link text-reset stretched-link">Ten tell-tale signs you need to get a new startup.</a></Card.Title>
+                                        <Card.Title >
+                                            <Card.Link href={`/post/${p._id}`} className="btn-link text-reset stretched-link" >{p.name}</Card.Link>
+                                        </Card.Title>
                                         <Card.Text>
-                                            This is a longer card with supporting text below as a natural
-                                            lead-in to additional content. This content is a little bit longer.
+                                            {p.description}
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
