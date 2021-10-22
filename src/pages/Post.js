@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 import Test from '../components/Nav/Test'
+import BlogPost from '../components/Blog/BlogPost';
 
 
 
@@ -13,7 +14,7 @@ function Post() {
 
     useEffect(() => {
         const getPost = async () => {
-            const res = await axios("/leaders/" + path);
+            const res = await axios("/post/" + path);
             setPost(res.data);
         };
         getPost()
@@ -21,8 +22,8 @@ function Post() {
     return (
         <>
             <Test />
-            <h1>{post.name}</h1>
-            <p>{post.description}</p>
+            <BlogPost post={post} />
+
 
         </>
     )

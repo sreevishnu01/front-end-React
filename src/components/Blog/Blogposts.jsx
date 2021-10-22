@@ -1,6 +1,6 @@
 import { Container, Row, Col, Card, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Sidebar from "./Sidebar";
+import Sidebar from "../Sidebar";
 
 
 const randomImg = {
@@ -13,7 +13,7 @@ const rounded5 = {
 
 // card  
 
-function Blogpost({ posts }) {
+function Blogposts({ posts }) {
     return (
         <Container className="pt-5 pb-5">
             <Row>
@@ -32,7 +32,7 @@ function Blogpost({ posts }) {
                                     <Card.Img variant="top" src={randomImg.image} style={rounded5} />
                                     <Card.Body>
                                         <Card.Title >
-                                            <Card.Link href={`/post/${p._id}`} className="btn-link text-reset stretched-link" >{p.name}</Card.Link>
+                                            <Card.Link href={`/post/${p._id}`} className="btn-link text-reset stretched-link" >{p.title}</Card.Link>
                                         </Card.Title>
                                         <Card.Text>
                                             {p.description}
@@ -57,4 +57,4 @@ function Blogpost({ posts }) {
     )
 }
 
-export default Blogpost
+export default Blogposts

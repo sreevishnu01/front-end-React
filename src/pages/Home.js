@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Blogpost from '../components/Blogpost';
+import Blogposts from '../components/Blog/Blogposts';
 import Header from '../components/Header';
 import axios from 'axios';
 
@@ -8,7 +8,7 @@ function Home() {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const res = await axios.get("/leaders")
+            const res = await axios.get("/post")
             setposts(res.data)
         }
         fetchPosts()
@@ -18,7 +18,7 @@ function Home() {
         <>
             <Header />
 
-            <Blogpost posts={posts} />
+            <Blogposts posts={posts} />
 
         </>
     );
