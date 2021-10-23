@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 import Test from '../components/Nav/Test'
-import BlogPost from '../components/Blog/BlogPost';
+import Blogpost from '../components/Blog/BlogPost';
 
 
 
@@ -22,7 +22,7 @@ function Post() {
     return (
         <>
             <Test />
-            <BlogPost post={post} />
+            <Blogpost post={post} />
 
 
         </>

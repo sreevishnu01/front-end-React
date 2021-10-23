@@ -11,7 +11,7 @@ const randomImg = {
 function Sidebar() {
     return (
 
-        <Container class="sticky-sm-top sticky-md-top" >
+        <Container class=" sticky-top mb-5" >
             <h4 class="mb-3">Trending topics</h4>
 
             <Card className="mb-3 text-center">
