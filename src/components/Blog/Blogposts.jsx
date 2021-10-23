@@ -5,7 +5,7 @@ import Test from "../Nav/Test";
 
 
 const randomImg = {
-    image: 'https://picsum.photos/1000/750',
+    // image: 'https://picsum.photos/1000/750',
 
 }
 const rounded5 = {
@@ -56,7 +56,7 @@ function Blogposts({ posts }) {
             </Row>
             <Test />
         </Container>
-    );
+    )
 }
 
-export default Blogposts;
+export default Blogposts
