@@ -13,7 +13,7 @@ const Header = () => {
             <Row >
                 <Col lg={6} >
                     <Card style={{
-                        background: `url(${frameimg})`
+                        background: `url(${frameimg1})`
                     }} className="card-overlay-bottom card-bg-scale card-bg-img text-white h-100" >
                         {/* <Card.Img style={rounded5} src={frameimg1} className="img-fluid h-100 card-bg-img" /> */}
                         <Card.ImgOverlay className="d-flex align-items-center p-3 p-sm-4">
