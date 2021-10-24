@@ -3,7 +3,7 @@ import NavBar1 from "../components/Nav/Navbar";
 import Home from "./Home";
 import Post from "./Post";
 import About from "./About";
-import Footer from "../components/Footer";
+
 
 import Tutorial from "./Tutorial";
 import Signin from '../components/Authentication/Signin';
@@ -24,7 +24,7 @@ function Mainrout() {
 
                 </Switch>
             </Router>
-            <Footer />
+            
         </>
     )
 }
