@@ -24,8 +24,8 @@ const Navbar1 = () => {
                         <Nav.Link href="/about">About</Nav.Link >
                     </Nav>
                     <div class="col-md-3 text-end">
-                        <Button variant='outline-primary' className="me-2">Login</Button>
-                        <Button>Sign up</Button>
+                        <Button href="/login" variant='outline-primary' className="me-2">Login</Button>
+                        <Button href="/signin">Sign up</Button>
                     </div>
                 </Navbar.Collapse>
             </Container>
