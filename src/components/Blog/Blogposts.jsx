@@ -27,7 +27,6 @@ function Blogposts({ posts }) {
                         {/* {Array.from({ length: 4 }).map((_, idx) => ( */}
                         {/* limited number of loop iterms */}
                         {posts.slice(0, 4).map((p) => (
-
                             <Col className="mt-5">
                                 <Card className="border-light col-sm-12">
                                     <Card.Img variant="top" src={randomImg.image} style={rounded5} />
@@ -36,7 +35,7 @@ function Blogposts({ posts }) {
                                             <Card.Link href={`/post/${p._id}`} className="btn-link text-reset stretched-link" >{p.title}</Card.Link>
                                         </Card.Title>
                                         <Card.Text>
-                                            {p.description}
+                                            {p.description}{p.author.username}
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>

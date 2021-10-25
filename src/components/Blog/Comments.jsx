@@ -1,22 +1,38 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 
-function Comments({ comments }) {
+function Comments({ postcomments }) {
+
     return (
         <div>
-            {Object.keys(comments).map((keyName) => (
+            {Object.keys(postcomments).map((keyName) => (
                 <Card className="mb-2">
-                    <Card.Header>{comments[keyName].author}</Card.Header>
+                    <Card.Header>{postcomments[keyName].author.username}</Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
                             <footer className="blockquote-footer">
-                                {new Date(comments[keyName].updatedAt).toDateString()}
+                                {new Date(postcomments[keyName].updatedAt).toDateString()}
                             </footer>
-                            <Card.Text>{comments[keyName].comment}</Card.Text>
+                            <Card.Text>{postcomments[keyName].comment}</Card.Text>
                         </blockquote>
                     </Card.Body>
                 </Card>
             ))}
+
+            {/* test */}
+            {/* {postcomments.map(c => (
+                <Card className="mb-2">
+                    <Card.Header>{c.author.username}</Card.Header>
+                    <Card.Body>
+                        <blockquote className="blockquote mb-0">
+                            <footer className="blockquote-footer">
+                                {new Date(c.updatedAt).toDateString()}
+                            </footer>
+                            <Card.Text>{c.comment}</Card.Text>
+                        </blockquote>
+                    </Card.Body>
+                </Card>
+            ))} */}
         </div>
     )
 }

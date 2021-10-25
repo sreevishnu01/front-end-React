@@ -10,18 +10,18 @@ import Sidebar from "../Sidebar";
 
 
 function Blogpost({ post }) {
-    const location = useLocation()
-    const path = location.pathname.split("/")[2];
-    const [comments, setComment] = useState({})
+    // const location = useLocation()
+    // const path = location.pathname.split("/")[2];
+    const [postcomments, setComment] = useState({})
 
     useEffect(() => {
         const getComment = async () => {
-            const res = await axios("/post/" + path + "/comments");
+            const res = await axios("/comments");
             console.log(res);
             setComment(res.data);
         };
         getComment()
-    }, [path]);
+    }, []);
 
     return (
         <>
@@ -40,7 +40,7 @@ function Blogpost({ post }) {
                                 </Card>
                             </Col>
                             <Col lg={6} className="mt-5">
-                                <Comments comments={comments} />
+                                <Comments postcomments={postcomments} />
                             </Col>
                         </Row>
                     </Col>
