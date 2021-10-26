@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 import Test from '../components/Nav/Test'
 import Blogpost from '../components/Blog/BlogPost';
+import Footer from '../components/Footer';
 
 
 
@@ -23,6 +24,7 @@ function Post() {
         <>
             <Test />
             <Blogpost post={post} />
+            <Footer />
 
 
         </>

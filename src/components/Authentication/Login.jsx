@@ -1,12 +1,18 @@
 import { Form, Container, Button } from 'react-bootstrap'
 
 function Login() {
+
+    const handleLogin =  (e)=>{
+        
+    }
+
+
     return (
         <div>
             <div className="min-vh-100  ">
                 <Container className="" >
                     <div className="form-signin  align-items-center justify-content-center d-flex">
-                        <Form >
+                        <Form onClick={handleLogin}>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control type="email" placeholder="Enter email" />

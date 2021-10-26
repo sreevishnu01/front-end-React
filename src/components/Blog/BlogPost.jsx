@@ -10,18 +10,18 @@ import Sidebar from "../Sidebar";
 
 
 function Blogpost({ post }) {
-    // const location = useLocation()
-    // const path = location.pathname.split("/")[2];
+    const location = useLocation()
+    const path = location.pathname.split("/")[2];
     const [postcomments, setComment] = useState({})
 
     useEffect(() => {
         const getComment = async () => {
-            const res = await axios("/comments");
+            const res = await axios("/comments/?postid=" + path);
             console.log(res);
             setComment(res.data);
         };
         getComment()
-    }, []);
+    }, [path]);
 
     return (
         <>

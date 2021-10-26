@@ -19,20 +19,7 @@ function Comments({ postcomments }) {
                 </Card>
             ))}
 
-            {/* test */}
-            {/* {postcomments.map(c => (
-                <Card className="mb-2">
-                    <Card.Header>{c.author.username}</Card.Header>
-                    <Card.Body>
-                        <blockquote className="blockquote mb-0">
-                            <footer className="blockquote-footer">
-                                {new Date(c.updatedAt).toDateString()}
-                            </footer>
-                            <Card.Text>{c.comment}</Card.Text>
-                        </blockquote>
-                    </Card.Body>
-                </Card>
-            ))} */}
+          
         </div>
     )
 }
