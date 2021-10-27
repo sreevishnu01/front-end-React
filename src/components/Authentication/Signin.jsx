@@ -28,7 +28,7 @@ function Signin() {
         <div className="min-vh-100  ">
             <Container className="mt-5" >
                 <div className="form-signin  align-items-center justify-content-center d-flex">
-                    <Form >
+                    <Form onSubmit={handleSignin}>
                         <Row className="mb-3">
                             <Form.Group as={Col} controlId="formGridEmail">
                                 <Form.Label>First name</Form.Label>
@@ -59,7 +59,7 @@ function Signin() {
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Agree" />
                         </Form.Group>
-                        <Button variant="primary" type="submit" onClick={handleSignin}>
+                        <Button variant="primary" type="submit" >
                             Submit
                         </Button>
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
