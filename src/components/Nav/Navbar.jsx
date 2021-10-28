@@ -30,12 +30,17 @@ const Navbar1 = () => {
                         </NavDropdown>
                         <Nav.Link href="#link">Lifestyle</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link >
+
                     </Nav>
                     {user ? (
+                        <Nav>
+                            <Nav.Link href="#deets">{user.username}</Nav.Link>
+                            <div class="col-md-3 text-end">
+                                <Button href="/login" variant='outline-primary' className="me-2" onClick={handleLogout}>{user && "LOGOUT"}</Button>
+                            </div>
+                        </Nav>
 
-                        <div class="col-md-3 text-end">
-                            <Button href="/login" variant='outline-primary' className="me-2" onClick={handleLogout}>{user && "LOGOUT"}</Button>
-                        </div>
+
                     ) : (
                         <div class="col-md-3 text-end">
                             <Button href="/login" variant='outline-primary' className="me-2">Login{user && "LOGOUT"}</Button>

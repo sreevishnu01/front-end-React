@@ -6,7 +6,7 @@ import { Context } from '../../Context/Context'
 function Login() {
     const userRef = useRef();
     const passwordRef = useRef();
-    const { dispatch, isFeching } = useContext(Context)
+    const { dispatch, isFeching, token } = useContext(Context)
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -16,7 +16,7 @@ function Login() {
                 username: userRef.current.value,
                 password: passwordRef.current.value,
             });
-            dispatch({ type: "LOGIN_SUCCESS", payload: res.data.token });
+            dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
         } catch (err) {
             dispatch({ type: "LOGIN_FAILURE" });
 

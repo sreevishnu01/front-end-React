@@ -12,16 +12,16 @@ import Sidebar from "../Sidebar";
 function Blogpost({ post }) {
     const location = useLocation()
     const path = location.pathname.split("/")[2];
-    const [postcomments, setComment] = useState({})
+    const [comment, setComment] = useState({})
 
     useEffect(() => {
         const getComment = async () => {
             const res = await axios("/comments/?postid=" + path);
-            console.log(res);
             setComment(res.data);
         };
         getComment()
     }, [path]);
+
 
     return (
         <>
@@ -40,7 +40,7 @@ function Blogpost({ post }) {
                                 </Card>
                             </Col>
                             <Col lg={6} className="mt-5">
-                                <Comments postcomments={postcomments} />
+                                <Comments postcomments={comment} path={path} />
                             </Col>
                         </Row>
                     </Col>
