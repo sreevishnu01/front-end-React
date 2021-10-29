@@ -1,17 +1,29 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux';
+import { loginRequest, loginSuccess, loginFaild } from '../../redux/auth'
+
 
 function Login() {
+    const user = useSelector(state => state.user)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const dispatch = useDispatch();
+
+
     const handleLogin = async (e) => {
         e.preventDefault();
-        const res = await axios.post('/users/login', {
-            username, password
-        });
-        console.log(res)
+        dispatch(loginRequest());
+        try {
+            const res = await axios.post('/users/login', {
+                username, password
+            });
+            dispatch(loginSuccess(res.data));
 
+        } catch (error) {
+            dispatch(loginFaild(error));
+        }
     };
 
     return (
