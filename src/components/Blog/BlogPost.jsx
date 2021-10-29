@@ -17,7 +17,6 @@ function Blogpost({ post }) {
     useEffect(() => {
         const getComment = async () => {
             const res = await axios("/comments/?postid=" + path);
-            console.log(res);
             setComment(res.data);
         };
         getComment()
@@ -40,7 +39,7 @@ function Blogpost({ post }) {
                                 </Card>
                             </Col>
                             <Col lg={6} className="mt-5">
-                                <Comments postcomments={postcomments} />
+                                <Comments postcomments={postcomments} path={path} />
                             </Col>
                         </Row>
                     </Col>

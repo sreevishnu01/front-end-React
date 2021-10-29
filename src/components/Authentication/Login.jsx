@@ -1,12 +1,11 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loginRequest, loginSuccess, loginFaild } from '../../redux/auth'
 
 
 function Login() {
-    const user = useSelector(state => state.user)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const dispatch = useDispatch();
