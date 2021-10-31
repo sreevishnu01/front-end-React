@@ -19,19 +19,33 @@ function Comments() {
     const handelComment = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('/comments', {
+            await axios.post('/comments', {
                 rating: rating,
                 comment: comment,
                 postid: path
             }, {
                 headers: { Authorization: `Bearer ${user.token}` }
             });
-            if (res.status = 200) {
-                setRefresh(true)
+            setRefresh(true)
+        } catch (error) {
+            if (error.response) {
+                // Request made and server responded
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+                if (error.response.status === 401) {
+                    localStorage.removeItem("token");
+                }
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error', error.message);
+                window.location = "/login";
             }
-        } catch (err) {
-            console.log(err)
-        }
+
+        };
         setRefresh(false)
         e.target.reset();
     }
