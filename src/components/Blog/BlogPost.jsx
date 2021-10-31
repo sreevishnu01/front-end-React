@@ -1,8 +1,6 @@
 import { Container, Row, Col, Card, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
+
 import Comments from '../Blog/Comments';
 import Sidebar from "../Sidebar";
 
@@ -10,17 +8,7 @@ import Sidebar from "../Sidebar";
 
 
 function Blogpost({ post }) {
-    const location = useLocation()
-    const path = location.pathname.split("/")[2];
-    const [postcomments, setComment] = useState({})
-
-    useEffect(() => {
-        const getComment = async () => {
-            const res = await axios("/comments/?postid=" + path);
-            setComment(res.data);
-        };
-        getComment()
-    }, [path]);
+    
 
     return (
         <>
@@ -38,8 +26,8 @@ function Blogpost({ post }) {
                                     </Card.Body>
                                 </Card>
                             </Col>
-                            <Col lg={6} className="mt-5">
-                                <Comments postcomments={postcomments} path={path} />
+                            <Col lg={12} className="mt-5">
+                                <Comments />
                             </Col>
                         </Row>
                     </Col>

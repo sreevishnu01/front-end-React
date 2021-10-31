@@ -1,13 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Card, Form, Button } from 'react-bootstrap'
 import axios from 'axios'
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 
-function Comments({ postcomments, path }) {
+function Comments() {
+
+    const user = useSelector(state => state.user.token)
+
+    const location = useLocation()
+    const path = location.pathname.split("/")[2];
+    const [postcomments, setPostComment] = useState({})
 
     const [rating, setRateing] = useState("")
     const [comment, setComment] = useState("")
-    const user = useSelector(state => state.user.token)
+    const [refresh, setRefresh] = useState("")
 
     const handelComment = async (e) => {
         e.preventDefault();
@@ -19,22 +26,37 @@ function Comments({ postcomments, path }) {
             }, {
                 headers: { Authorization: `Bearer ${user.token}` }
             });
-
+            if (res.status = 200) {
+                setRefresh(true)
+            }
         } catch (err) {
-            console.log("hellow")
+            console.log(err)
         }
+        setRefresh(false)
+        e.target.reset();
     }
+
+
+    useEffect(() => {
+        const getComment = async () => {
+            const res = await axios("/comments/?postid=" + path);
+            setPostComment(res.data);
+        };
+        getComment()
+    }, [path, refresh]);
+
+
 
     return (
         <div>
-            <Card>
+            <Card className="border-light">
                 <Card.Body>
                     <Card.Title>Comments</Card.Title>
                 </Card.Body>
 
 
                 {Object.keys(postcomments).map((keyName) => (
-                    <Card className="mb-2">
+                    <Card className="border-light mb-2">
                         <Card.Header>{postcomments[keyName].author.username}</Card.Header>
                         <Card.Body>
                             <blockquote className="blockquote mb-0">
@@ -47,9 +69,9 @@ function Comments({ postcomments, path }) {
                     </Card>
                 ))}
             </Card>
-            <Card>
+            <Card className="border-light">
 
-                <Form onSubmit={handelComment}>
+                <Form className="border-light" onSubmit={handelComment}>
                     <Form.Group className="mt-5 mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Comment</Form.Label>
                         <Form.Select aria-label="Default select example" onChange={e => setRateing(e.target.value)}>
