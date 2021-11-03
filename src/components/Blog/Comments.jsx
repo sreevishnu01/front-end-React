@@ -70,7 +70,7 @@ function Comments() {
 
 
                 {Object.keys(postcomments).map((keyName) => (
-                    <Card className="border-light mb-2">
+                    <Card className="border-light mb-2" key={postcomments[keyName]._id}>
                         <Card.Header>{postcomments[keyName].author.username}</Card.Header>
                         <Card.Body>
                             <blockquote className="blockquote mb-0">
