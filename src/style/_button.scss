@@ -9,7 +9,7 @@
     transition-duration: .5s;
     font-weight: inherit;
     padding: 0;
-    text-decoration: none;
+    text-decoration: none !important;
   }
   .btn-link:hover {
     background-size: 100% 6%;

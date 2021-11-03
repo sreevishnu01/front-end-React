@@ -17,14 +17,22 @@ function Post() {
         const getPost = async () => {
             const res = await axios("/post/" + path);
             setPost(res.data);
-        };
+
+        }
         getPost()
     }, [path]);
     return (
         <>
-            <Test />
-            <Blogpost post={post} />
-            <Footer />
+            {post ? (
+                <>
+                    <Test />
+                    <Blogpost post={post} />
+                    <Footer />
+                </>
+            ) : (
+                <h1>eroore</h1>
+            )}
+
 
 
         </>

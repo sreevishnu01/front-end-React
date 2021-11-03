@@ -34,14 +34,14 @@ const Navbar1 = () => {
                     </Nav>
                     {user ? (
                         <Nav>
-                            <Nav.Link href="#">{user.username}</Nav.Link >
-                            <div class="col-md-3 text-end">
+                            <Nav.Link href="/admin">{user.username}</Nav.Link >
+                            <div className="col-md-3 text-end">
                                 <Button href="/login" variant='outline-primary' className="me-2" onClick={(handellogout)}>Logout</Button>
                             </div>
                         </Nav>
 
                     ) : (
-                        <div class="col-md-3 text-end">
+                        <div className="col-md-3 text-end">
                             <Button href="/login" variant='outline-primary' className="me-2">Login</Button>
                             <Button href="/signin">Sign up</Button>
                         </div>

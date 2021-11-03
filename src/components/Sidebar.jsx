@@ -11,8 +11,8 @@ const randomImg = {
 function Sidebar() {
     return (
 
-        <Container class=" sticky-top mb-5" >
-            <h4 class="mb-3">Trending topics</h4>
+        <Container className=" sticky-md-top mb-5" >
+            <h4 className="mb-3">Trending topics</h4>
 
             <Card className="mb-3 text-center">
                 <Card.Title>Top 10</Card.Title>
@@ -26,11 +26,11 @@ function Sidebar() {
             <Card className="mb-3 text-center">
                 <Card.Title>Marketing</Card.Title>
             </Card>
-            <div class="text-center mt-3">
-                <a class="fw-bold text-body text-primary-hover"><u>View all categories</u></a>
+            <div className="text-center mt-3">
+                <a href='ss' className="fw-bold text-body text-primary-hover"><u>View all categories</u></a>
             </div>
 
-            <h4 class="mt-4 mb-3">Recent Post</h4>
+            <h4 className="mt-4 mb-3">Recent Post</h4>
 
             <Row >
 
@@ -45,7 +45,7 @@ function Sidebar() {
                         <Card.Title>
                             <h6 className="btn-link stretched-link">The pros and cons of business agency</h6>
                         </Card.Title>
-                        <div class="small mt-1">May 17, 2021</div>
+                        <div className="small mt-1">May 17, 2021</div>
                     </Card>
                 </Col>
 
@@ -65,7 +65,7 @@ function Sidebar() {
                         <Card.Title>
                             <h6 className="btn-link stretched-link">The pros and cons of business agency</h6>
                         </Card.Title>
-                        <div class="small mt-1">May 17, 2021</div>
+                        <div className="small mt-1">May 17, 2021</div>
                     </Card>
                 </Col>
 
