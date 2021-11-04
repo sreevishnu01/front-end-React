@@ -3,15 +3,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Comments from '../Blog/Comments';
 import Sidebar from "../Sidebar";
+import Test from "../Nav/Test";
 
 
 
 
 function Blogpost({ post }) {
-    
+
 
     return (
         <>
+            <Test />
             <Container className="mb-5">
                 <Row>
                     <Col lg={9}>
@@ -37,13 +39,8 @@ function Blogpost({ post }) {
 
                 </Row>
             </Container>
-
-
-
-
-
+            <footer />
         </>
-
     )
 }
 

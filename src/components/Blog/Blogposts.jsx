@@ -2,6 +2,10 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Sidebar from "../Sidebar";
 import Test from "../Nav/Test";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { blogPostAll } from "../../redux/blog";
 
 
 const randomImg = {
@@ -14,7 +18,22 @@ const rounded5 = {
 
 // card  
 
-function Blogposts({ posts }) {
+function Blogposts() {
+    const blog = useSelector(state => state.blog)
+    const [posts, setposts] = useState([]);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            const res = await axios.get("/post")
+            dispatch(blogPostAll(res.data));
+            setposts(res.data)
+        }
+        fetchPosts()
+
+    }, [dispatch])
+    console.log(blog)
+
     return (
         <Container className="pt-5 pb-5 mb-5">
             <Row className="mb-5">
@@ -32,7 +51,7 @@ function Blogposts({ posts }) {
                                     <Card.Img variant="top" src={randomImg.image} style={rounded5} />
                                     <Card.Body>
                                         <Card.Title >
-                                            <Card.Link href={`/post/${p._id}`} className="btn-link text-reset stretched-link" >{p.title}</Card.Link>
+                                            <Card.Link href={`/blog/${p._id}`} className="btn-link text-reset stretched-link" >{p.title}</Card.Link>
                                         </Card.Title>
                                         <Card.Subtitle className="mb-2 text-muted">{p.author.firstname} {p.author.lastname}</Card.Subtitle>
                                         <Card.Text>
@@ -46,7 +65,8 @@ function Blogposts({ posts }) {
                     {/* Learn more last section */}
                     <Row>
                         <Col className="col-12 text-center mt-5">
-                            <Button variant="primery" className="text-secondary">Learn more</Button>
+                            <Button href="/blog" variant="primery" className="text-secondary">
+                                Learn more</Button>
                         </Col>
                     </Row>
                 </Col>

@@ -1,12 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Col, Container, Row, Nav, Tab } from "react-bootstrap"
 import BlogNewpost from './Blog/BlogNewpost'
+import { useSelector } from 'react-redux';
+import Login from './Authentication/Login';
 
 
-export class admin extends Component {
-    render() {
-        return (
-            <div>
+
+function Admin() {
+    const user = useSelector(state => state.user.token)
+    return (
+        <div>
+            {user ? (
                 <Container fluid>
                     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                         <Row>
@@ -34,9 +38,16 @@ export class admin extends Component {
                         </Row>
                     </Tab.Container>
                 </Container>
-            </div>
-        )
-    }
+            ) : (
+                <Login />
+            )}
+
+        </div>
+    )
 }
 
-export default admin
+export default Admin
+
+
+
+

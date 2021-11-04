@@ -8,6 +8,7 @@ import Signin from '../components/Authentication/Signin';
 import Login from '../components/Authentication/Login';
 import { useSelector } from 'react-redux';
 import admin from '../components/admin';
+import BlogPostList from '../components/Blog/BlogPostList';
 
 function Mainrout() {
     const user = useSelector(state => state.user.token)
@@ -19,10 +20,11 @@ function Mainrout() {
                     <Route path="/" exact component={Home} />
                     <Route path="/about" component={About} />
                     <Route path="/Tutorial" component={Tutorial} />
-                    <Route path="/post" component={Post} />
+                    <Route path="/blog/" exact component={BlogPostList} />
+                    <Route path="/blog/:id" exact component={Post} />
                     <Route path="/signin" component={Signin} />
-                    <Route path="/admin" component={admin} />
                     <Route path="/login">{user ? <Home /> : <Login />}</Route>
+                    <Route path="/admin" component={admin} />
 
                 </Switch>
             </Router>
