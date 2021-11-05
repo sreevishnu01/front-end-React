@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../assets/axiosconfig'
 import { useState } from 'react'
 import { Form, Container, Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux';

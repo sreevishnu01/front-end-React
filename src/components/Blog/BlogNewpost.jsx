@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Form, Button } from 'react-bootstrap'
-import axios from 'axios'
+import axios from '../../assets/axiosconfig'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 

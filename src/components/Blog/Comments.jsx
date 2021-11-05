@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Card, Form, Button } from 'react-bootstrap'
-import axios from 'axios'
+import axios from '../../assets/axiosconfig'
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 

@@ -1,5 +1,5 @@
 import { Form, Container, Button, Row, Col } from 'react-bootstrap'
-import axios from 'axios'
+import axios from '../../assets/axiosconfig'
 import { useState } from 'react'
 
 function Signin() {

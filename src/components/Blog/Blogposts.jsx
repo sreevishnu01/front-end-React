@@ -2,9 +2,9 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Sidebar from "../Sidebar";
 import Test from "../Nav/Test";
-import axios from 'axios';
+import axios from '../../assets/axiosconfig';
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { blogPostAll } from "../../redux/blog";
 
 
@@ -19,7 +19,6 @@ const rounded5 = {
 // card  
 
 function Blogposts() {
-    const blog = useSelector(state => state.blog)
     const [posts, setposts] = useState([]);
     const dispatch = useDispatch();
 
@@ -32,7 +31,6 @@ function Blogposts() {
         fetchPosts()
 
     }, [dispatch])
-    console.log(blog)
 
     return (
         <Container className="pt-5 pb-5 mb-5">

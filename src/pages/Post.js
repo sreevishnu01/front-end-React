@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../assets/axiosconfig';
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 import Blogpost from '../components/Blog/BlogPost';
