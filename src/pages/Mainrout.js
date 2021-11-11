@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NavBar1 from "../components/Nav/Navbar";
+import NavBar1 from "../components/Layout/Nav/Navbar";
 import Home from "./Home";
 import Post from "./Post";
 import About from "./About";
@@ -7,7 +7,7 @@ import Tutorial from "./Tutorial";
 import Signin from '../components/Authentication/Signin';
 import Login from '../components/Authentication/Login';
 import { useSelector } from 'react-redux';
-import admin from '../components/admin';
+import admin from '../components/Adminpanel/admin';
 import BlogPostList from '../components/Blog/BlogPostList';
 
 function Mainrout() {

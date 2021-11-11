@@ -1,8 +1,8 @@
 import React from 'react'
 import { Col, Container, Row, Nav, Tab } from "react-bootstrap"
-import BlogNewpost from './Blog/BlogNewpost'
+import BlogNewpost from './add-new-post/BlogNewpost'
 import { useSelector } from 'react-redux';
-import Login from './Authentication/Login';
+import Login from '../Authentication/Login';
 
 
 
@@ -17,10 +17,10 @@ function Admin() {
                             <Col md={3} lg={2}>
                                 <Nav variant="pills" className="flex-column">
                                     <Nav.Item>
-                                        <Nav.Link eventKey="first">Tab 1</Nav.Link>
+                                        <Nav.Link eventKey="first">Add Ner Post</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Nav.Link eventKey="second">Tab 2</Nav.Link>
+                                        <Nav.Link eventKey="second">Blog Posts</Nav.Link>
                                     </Nav.Item>
                                 </Nav>
                             </Col>

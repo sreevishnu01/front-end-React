@@ -1,17 +1,14 @@
 import { Container, Row, Col, Card, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Sidebar from "../Sidebar";
-import Test from "../Nav/Test";
+import Sidebar from "../Layout/Sidebar/Sidebar";
+import Test from "../Layout/Nav/Test";
 import axios from '../../assets/axiosconfig';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 import { blogPostAll } from "../../redux/blog";
+import frameimg from '../../assets/707653.jpeg'
 
 
-const randomImg = {
-    image: 'https://picsum.photos/1000/750',
-
-}
 const rounded5 = {
     borderRadius: "0.7rem",
 }
@@ -46,7 +43,7 @@ function Blogposts() {
                         {posts.slice(0, 4).map((p) => (
                             <Col className="mt-5" key={p._id}>
                                 <Card className="border-light col-sm-12">
-                                    <Card.Img variant="top" src={randomImg.image} style={rounded5} />
+                                    <Card.Img variant="top" src={frameimg} style={rounded5} />
                                     <Card.Body>
                                         <Card.Title >
                                             <Card.Link href={`/blog/${p._id}`} className="btn-link text-reset stretched-link" >{p.title}</Card.Link>

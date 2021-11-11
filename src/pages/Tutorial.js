@@ -1,4 +1,4 @@
-import Test from '../components/Nav/Test'
+import Test from '../components/Layout/Nav/Test'
 
 
 

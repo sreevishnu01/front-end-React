@@ -1,6 +1,6 @@
 import { Container, Card } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import frameimg from '../../assets/9159.jpeg'
+import frameimg from '../../../assets/9159.jpeg'
 
 
 

@@ -2,8 +2,8 @@ import { Container, Row, Col, Card } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Comments from '../Blog/Comments';
-import Sidebar from "../Sidebar";
-import Test from "../Nav/Test";
+import Sidebar from "../Layout/Sidebar/Sidebar";
+import Test from "../Layout/Nav/Test";
 
 
 

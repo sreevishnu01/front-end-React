@@ -1,7 +1,7 @@
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import frameimg from '../assets/9159.jpeg'
-import frameimg1 from '../assets/2188603.png'
+import frameimg from '../../assets/9159.jpeg'
+import frameimg1 from '../../assets/2188603.png'
 
 // inline style
 

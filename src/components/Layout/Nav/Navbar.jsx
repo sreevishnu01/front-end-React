@@ -1,9 +1,9 @@
-import { Nav, Navbar, NavDropdown, Container, Button } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown, Container, Button, Image } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch } from 'react-redux';
-
 import React from 'react'
-import { logOut } from '../../redux/auth';
+import { logOut } from '../../../redux/auth';
+import pic from '../../../assets/707653.jpeg'
 
 const Navbar1 = () => {
     const dispatch = useDispatch();
@@ -34,10 +34,19 @@ const Navbar1 = () => {
                     </Nav>
                     {user ? (
                         <Nav>
-                            <Nav.Link href="/admin">{user.username}</Nav.Link >
-                            <div className="col-md-3 text-end">
-                                <Button href="/login" variant='outline-primary' className="me-2" onClick={(handellogout)}>Logout</Button>
-                            </div>
+                            <Navbar.Brand href="/admin"><Image
+                                src={pic}
+                                width="40"
+                                height="40"
+                                alt="logo" roundedCircle
+                            /></Navbar.Brand>
+                            <NavDropdown title={user.username} id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="/login" onClick={(handellogout)}>Logout</NavDropdown.Item>
+                            </NavDropdown>
                         </Nav>
 
                     ) : (
