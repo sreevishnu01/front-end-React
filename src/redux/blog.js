@@ -15,6 +15,13 @@ export const blogSlice = createSlice({
             state.data = action.payload;
             localStorage.setItem('blogposts', JSON.stringify(state.data))
         },
+        blogNewPost: (state, action) => {
+            state.data = action.payload;
+        },
+        blogDataClear: (state, action) => {
+            state.data = null;
+            state.error = false;
+        }
     }
 })
 

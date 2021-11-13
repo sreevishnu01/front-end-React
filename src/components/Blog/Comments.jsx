@@ -14,7 +14,7 @@ function Comments() {
 
     const [rating, setRateing] = useState("")
     const [comment, setComment] = useState("")
-    const [refresh, setRefresh] = useState("")
+    const [refresh, setRefresh] = useState(false)
 
     const handelComment = async (e) => {
         e.preventDefault();

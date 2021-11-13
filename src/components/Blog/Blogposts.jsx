@@ -9,9 +9,7 @@ import { blogPostAll } from "../../redux/blog";
 import frameimg from '../../assets/707653.jpeg'
 
 
-const rounded5 = {
-    borderRadius: "0.7rem",
-}
+
 
 // card  
 
@@ -42,15 +40,17 @@ function Blogposts() {
                         {/* limited number of loop iterms */}
                         {posts.slice(0, 4).map((p) => (
                             <Col className="mt-5" key={p._id}>
-                                <Card className="border-light col-sm-12">
-                                    <Card.Img variant="top" src={frameimg} style={rounded5} />
+                                <Card className="border-light col-sm-12 card-shadow">
+                                    <Card.Img variant="top" src={frameimg} className="card-ct" />
                                     <Card.Body>
                                         <Card.Title >
                                             <Card.Link href={`/blog/${p._id}`} className="btn-link text-reset stretched-link" >{p.title}</Card.Link>
                                         </Card.Title>
-                                        <Card.Subtitle className="mb-2 text-muted">{p.author.firstname} {p.author.lastname}</Card.Subtitle>
-                                        <Card.Text>
-                                            {p.description.length > 250 ? `${p.description.substring(0, 250)}...` : p.description}
+                                        <footer className="mt-2 blockquote-footer">
+                                            Author: <cite title="Source">{p.author.firstname} {p.author.lastname}</cite>
+                                        </footer>
+                                        <Card.Subtitle className="text-muted">{p.categories}</Card.Subtitle>
+                                        <Card.Text dangerouslySetInnerHTML={{ __html: p.description.length > 250 ? `${p.description.substring(0, 250)}...` : p.description }}>
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>

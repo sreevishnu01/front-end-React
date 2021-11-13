@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
-import frameimg from '../../assets/707653.jpeg'
 import Sidebar from '../Layout/Sidebar/Sidebar'
 
 const randomImg = {
@@ -36,8 +35,7 @@ function BlogPostList() {
                                                     <Card.Link href={`/blog/${p._id}`} className="btn-link text-reset stretched-link" >{p.title}</Card.Link>
                                                 </Card.Title>
                                                 <Card.Subtitle className="text-muted">{p.author.firstname} {p.author.lastname}</Card.Subtitle>
-                                                <Card.Text>
-                                                    {p.description.length > 250 ? `${p.description.substring(0, 250)}...` : p.description}
+                                                <Card.Text><div dangerouslySetInnerHTML={{ __html: p.description.length > 250 ? `${p.description.substring(0, 250)}...` : p.description }} />
                                                 </Card.Text>
                                             </Card.Body>
                                         </Card>

@@ -1,11 +1,10 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import SidebarCategories from './SidebarCategories'
 import Editor from './Editor'
 
 function BlogNewpost() {
 
-    
+
     return (
         <div>
             <Row className="mt-5">
@@ -13,7 +12,7 @@ function BlogNewpost() {
                     <Editor />
                 </Col>
                 <Col>
-                    <SidebarCategories />
+                    {/* <SidebarCategories /> */}
                 </Col>
             </Row>
 

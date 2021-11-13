@@ -24,7 +24,8 @@ function Blogpost({ post }) {
                                 <Card className="mb-5">
                                     <Card.Body>
                                         <Card.Title>{post.title}</Card.Title>
-                                        <Card.Text>{post.description}</Card.Text>
+                                        <Card.Text dangerouslySetInnerHTML={{ __html: post.description }}>
+                                        </Card.Text>
                                     </Card.Body>
                                 </Card>
                             </Col>
