@@ -3,23 +3,18 @@ import { Container, Form, Button, Card, Modal, Row, Col } from 'react-bootstrap'
 import axios from '../../../assets/axiosconfig'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
-
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
-
-
-
 
 function Editor() {
 
     const [smShow, setSmShow] = useState(false);
-    const user = useSelector(state => state.user.token)
     const [title, setTitle] = useState("")
     const [label, setLabel] = useState("")
     const [categories, setcategories] = useState("")
     const [description, setDisc] = useState("")
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(false)
+    const user = useSelector(state => state.user.token);
 
     const handelSubmit = async (e) => {
         e.preventDefault();
@@ -27,7 +22,7 @@ function Editor() {
             const res = await axios.post('/post', {
                 title: title,
                 label: label,
-                categories: categories,
+                categorys: categories,
                 description: description,
                 fetured: checked
             }, {

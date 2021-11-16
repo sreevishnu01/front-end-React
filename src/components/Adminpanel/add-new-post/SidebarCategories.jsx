@@ -1,78 +1,48 @@
-import axios from '../../../assets/axiosconfig'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Form, Button, Card, ListGroup, InputGroup, FormControl } from 'react-bootstrap'
 import { useSelector } from 'react-redux';
+import useCategoryAction from '../../../hooks/useCategoryAction';
 
 function SidebarCategories() {
 
-    const user = useSelector(state => state.user.token)
-    const [addCategorie, setAddCategorie] = useState("")
-    const [label, setLabel] = useState("")
-
-
-    // axios post categories
-    const handelSubmit = async (e) => {
-        e.preventDefault();
-        console.log(addCategorie)
-        try {
-            const res = await axios.put('users/' + user.id, {
-                categories: addCategorie,
-            }, {
-                headers: { Authorization: `Bearer ${user.token}` }
-            })
-            console.log(res)
-        } catch (error) {
-            if (error.response) {
-                // Request made and server responded
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-                if (error.response.status === 401) {
-                    localStorage.removeItem("token");
-                }
-            } else if (error.request) {
-                // The request was made but no response was received
-                console.log(error.request);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                console.log('Error', error.message);
-                window.location = "/login";
-            }
-        }
-    }
+    // coustom hook
+    const [addCategorie, setAddCategorie] = useState('')
+    const [categoryId, setcategoryId] = useState('')
+    const { getCategory, postCategorys, deleteCategory } = useCategoryAction(addCategorie, categoryId);
+    const categorys = useSelector(state => state.blog.categorys)
 
 
 
-    const handelCheckbox = (e) => {
-        const { name, checked } = e.target;
-        let tempuser = label.map((user) =>
-            user === name ? { user, isChecked: checked } : user
-        );
-        setLabel(tempuser)
-    }
-
+    useEffect(() => {
+        getCategory()
+        console.log('use')
+    }, [])
 
     return (
         <>
             <Card className="card-shadow">
                 <Card.Header>Categories</Card.Header>
                 <Card.Body>
-                    <Form>
-                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Select>
-                                {user.categories.map((p) => (
-                                    <option value={p}>{p}</option>
-                                ))}
-                            </Form.Select>
+                    {categorys ? (
+                        <Form>
+                            {categorys.map((p) => (
+                                <Form.Group key={p._id} controlId="formBasicCheckbox">
+                                    <Form.Check type="checkbox" value={p._id}
+                                        label={p.title} onChange={e => setcategoryId(e.target.value)} />
+                                </Form.Group>
+                            ))}
+                        </Form>
+                    ) : (
+                        <p>NO categorys</p>
+                    )}
 
-                        </Form.Group>
-                    </Form>
                 </Card.Body>
                 <ListGroup variant="flush">
                     <ListGroup.Item>
                         <InputGroup>
                             <FormControl placeholder="New Categories" onChange={e => setAddCategorie(e.target.value)} />
-                            <Button onClick={handelSubmit}>+</Button>
+                            <Button onClick={postCategorys} className="mx-1">+</Button>
+                            <Button variant="danger" onClick={deleteCategory}>-</Button>
                         </InputGroup>
                     </ListGroup.Item>
                 </ListGroup>

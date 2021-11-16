@@ -22,6 +22,7 @@ function Login() {
 
         } catch (error) {
             dispatch(loginFaild(error));
+            console.log(error)
         }
     };
 

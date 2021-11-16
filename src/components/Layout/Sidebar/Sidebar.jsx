@@ -1,5 +1,6 @@
 import { Container, Row, Col, Card } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSelector } from "react-redux";
 
 
 const randomImg = {
@@ -9,23 +10,18 @@ const randomImg = {
 }
 
 function Sidebar() {
+
+    const categorys = useSelector(state => state.blog.categorys)
+
     return (
 
         <Container className=" sticky-md-top mb-5" >
             <h4 className="mb-3">Trending topics</h4>
-
-            <Card className="mb-3 text-center">
-                <Card.Title>Top 10</Card.Title>
-            </Card>
-            <Card className="mb-3 text-center">
-                <Card.Title>Bussinus</Card.Title>
-            </Card>
-            <Card className="mb-3 text-center">
-                <Card.Title>Traveling</Card.Title>
-            </Card>
-            <Card className="mb-3 text-center">
-                <Card.Title>Marketing</Card.Title>
-            </Card>
+            {categorys.map((p) => (
+                <Card key={p._id} className="mb-3 text-center">
+                    <Card.Title >{p.title}</Card.Title>
+                </Card>
+            ))}
             <div className="text-center mt-3">
                 <a href='ss' className="fw-bold text-body text-primary-hover"><u>View all categories</u></a>
             </div>

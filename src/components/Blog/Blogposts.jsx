@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 import { blogPostAll } from "../../redux/blog";
 import frameimg from '../../assets/707653.jpeg'
+import CategoryAction from "../../hooks/useCategoryAction";
 
 
 
@@ -14,8 +15,11 @@ import frameimg from '../../assets/707653.jpeg'
 // card  
 
 function Blogposts() {
+
+    const { getCategory } = CategoryAction();
     const [posts, setposts] = useState([]);
     const dispatch = useDispatch();
+
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -23,8 +27,8 @@ function Blogposts() {
             dispatch(blogPostAll(res.data));
             setposts(res.data)
         }
-        fetchPosts()
-
+        fetchPosts();
+        getCategory()
     }, [dispatch])
 
     return (
